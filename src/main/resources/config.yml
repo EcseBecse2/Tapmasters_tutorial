@@ -1,0 +1,121 @@
+
+started:
+  message:
+    - ""
+    - "&3&lTUTORIAL"
+    - "&fComplete for some reward!"
+    - ""
+
+completed:
+  title: "&3&lTUTORIAL"
+  subtitle: "&fcompleted"
+  message:
+    - ""
+    - "&3&lTUTORIAL"
+    - "&fYou successfully completed the tutorial"
+    - ""
+  commands:
+    - "workers give {player} click 5"
+    - "broadcast {player} completed the tutorial!"
+    - "ggevent start"
+
+step-title: "&3&lTUTORIAL"
+step-subtitle: "&fStep {step}"
+
+steps:
+  '1':
+    type: "CLAIM_REWARD"
+    req: 2
+    message:
+      - ""
+      - "&3&lSTEP 1"
+      - "&fOpen &b/rewards &fand claim the &f&lDefault"
+      - "&fdaily and seasonal rewards"
+      - ""
+  '2':
+    type: "OPEN_CRATE"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 2"
+      - "&fGo to crates &7(inside the house)"
+      - "&fand open the 4 &7&ldefault &fkeys"
+      - ""
+  '3':
+    type: "GAIN_CLICK"
+    req: 200
+    message:
+      - ""
+      - "&3&lSTEP 3"
+      - "&fOpen the &bClicker gui &7(Nether star in your hand)"
+      - "&fand click 200 times"
+      - ""
+  '4':
+    type: "SELL_CLICK"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 4"
+      - "&fSell the clicks using the &b/sell &fcommand"
+      - ""
+  '5':
+    type: "UPGRADE"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 5"
+      - "&fOpen the &bClicker Gui &fand the &a&lUpgrades menu"
+      - "&fand upgrade the first &f&lClick &fupgrade to level 2"
+      - ""
+  '6':
+    type: "LEVELUP_PET"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 6"
+      - "&fLevel up your &7&lcommon &fpet to level 2."
+      - "&fThe pets get xp every time you sell your clicks"
+      - ""
+  '7':
+    type: "GAIN_TOKEN"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 7"
+      - "&fClick until you get 1 &e&ltoken"
+      - "&7(You have chance for token every time you click)"
+      - ""
+  '8':
+    type: "BUY_KEY"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 8"
+      - "&fBuy 1 &7&lDefault &fkey in &b/keys"
+      - ""
+  '9':
+    type: "OPEN_CRATE"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 9"
+      - "&fOpen a &7&lDefault &fcrate"
+      - ""
+  '10':
+    type: "GAIN_CLICK"
+    req: 1000000000000
+    message:
+      - ""
+      - "&3&lSTEP 10"
+      - "&fClick, sell, upgrade until"
+      - "&fyou reach 1T &f&lClicks"
+      - ""
+  '11':
+    type: "PRESTIGE"
+    req: 1
+    message:
+      - ""
+      - "&3&lSTEP 11"
+      - "&fRun the command &b/prestige &fand"
+      - "&fclick the item to prestige"
+      - ""
