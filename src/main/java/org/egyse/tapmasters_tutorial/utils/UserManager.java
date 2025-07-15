@@ -27,12 +27,30 @@ public class UserManager implements Listener {
         startSaveTask();
     }
 
+    public User getUserByName(String n) {
+        for (User u : users.values()) {
+            if (u.getName().equalsIgnoreCase(n)) return u;
+        }
+        return null;
+    }
+
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         User u = users.getOrDefault(p.getUniqueId(), null);
         if (p.hasPlayedBefore()) {
-            if (u == null) return;
+            if (u == null) {
+                User user = new User(
+                        p.getUniqueId(),
+                        p.getName(),
+                        1,
+                        0
+                );
+                users.put(p.getUniqueId(), user);
+                pl.messageStarted(p, pl.tutorialManager.started);
+                pl.message(p, pl.tutorialManager.getSteps().get(1));
+                return;
+            }
 
             if (u.getStep() > 0) {
                 Step step = pl.tutorialManager.getSteps().getOrDefault(u.getStep(), null);
@@ -46,6 +64,7 @@ public class UserManager implements Listener {
             if (u == null) {
                 User user = new User(
                         p.getUniqueId(),
+                        p.getName(),
                         1,
                         0
                 );
@@ -94,8 +113,13 @@ public class UserManager implements Listener {
             for (String cmd : pl.tutorialManager.completed.getCommands()) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", p.getName()));
             }
-            users.remove(u.getUuid());
+            u.setStep(-2);
+            users.put(u.getUuid(), u);
         }
+    }
+
+    public ConcurrentHashMap<UUID, User> getUsers() {
+        return users;
     }
 
     // json loading saving

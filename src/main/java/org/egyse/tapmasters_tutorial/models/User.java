@@ -4,11 +4,13 @@ import java.util.UUID;
 
 public class User {
     private UUID uuid;
+    private String name;
     private int step;
     private double progress;
 
-    public User(UUID uuid, int step, double progress) {
+    public User(UUID uuid, String name, int step, double progress) {
         this.uuid = uuid;
+        this.name = name;
         this.step = step;
         this.progress = progress;
     }
@@ -19,6 +21,14 @@ public class User {
 
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getStep() {
