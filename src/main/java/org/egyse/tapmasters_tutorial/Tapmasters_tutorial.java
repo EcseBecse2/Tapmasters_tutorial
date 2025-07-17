@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.egyse.tapmasters_tutorial.commands.TutorialCommand;
+import org.egyse.tapmasters_tutorial.listeners.CrateOpenListener;
 import org.egyse.tapmasters_tutorial.models.Completed;
 import org.egyse.tapmasters_tutorial.models.DefaultFontInfo;
 import org.egyse.tapmasters_tutorial.models.Step;
@@ -21,12 +22,14 @@ public final class Tapmasters_tutorial extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         instance = this;
 
         tutorialManager = new TutorialManager();
         userManager = new UserManager();
 
         getServer().getPluginManager().registerEvents(userManager, this);
+        getServer().getPluginManager().registerEvents(new CrateOpenListener(), this);
 
         getCommand("tutorial").setExecutor(new TutorialCommand());
     }

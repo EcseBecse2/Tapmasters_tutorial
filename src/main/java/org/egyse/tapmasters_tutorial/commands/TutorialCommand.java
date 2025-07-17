@@ -1,10 +1,12 @@
 package org.egyse.tapmasters_tutorial.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.egyse.tapmasters_tutorial.Tapmasters_tutorial;
+import org.egyse.tapmasters_tutorial.models.StepType;
 import org.egyse.tapmasters_tutorial.models.User;
 
 public class TutorialCommand implements CommandExecutor {
@@ -36,6 +38,28 @@ public class TutorialCommand implements CommandExecutor {
             } else {
                 commandSender.sendMessage("/tutorial reset <playername>");
             }
+        } else if (strings.length == 3) {
+            Player p = Bukkit.getPlayer(strings[0]);
+            if (p == null) {
+                commandSender.sendMessage("invalid player");
+                return true;
+            }
+
+            StepType stepType = null;
+            try {
+                stepType = StepType.valueOf(strings[1]);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            double amount;
+            try {
+                amount = Double.parseDouble(strings[2]);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            pl.userManager.logAction(p, stepType, amount);
         } else {
             commandSender.sendMessage("/tutorial reset <playername>");
         }

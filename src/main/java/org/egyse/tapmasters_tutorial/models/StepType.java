@@ -2,7 +2,7 @@ package org.egyse.tapmasters_tutorial.models;
 
 public enum StepType {
     CLAIM_REWARD(),
-    GAIN_ClICK(),
+    GAIN_CLICK(),
     SELL_CLICK(),
     UPGRADE(),
     OPEN_CRATE(),

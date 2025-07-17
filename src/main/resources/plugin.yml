@@ -2,6 +2,8 @@ name: Tapmasters_tutorial
 version: '${project.version}'
 main: org.egyse.tapmasters_tutorial.Tapmasters_tutorial
 api-version: '1.19'
+softdepend:
+  - sCrates
 commands:
   tutorial:
     aliases:

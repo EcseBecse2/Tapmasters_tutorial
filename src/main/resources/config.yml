@@ -34,7 +34,7 @@ steps:
       - ""
   '2':
     type: "OPEN_CRATE"
-    req: 1
+    req: 4
     message:
       - ""
       - "&3&lSTEP 2"
