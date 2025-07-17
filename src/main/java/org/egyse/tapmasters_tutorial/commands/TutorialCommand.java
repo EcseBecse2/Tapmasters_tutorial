@@ -18,7 +18,12 @@ public class TutorialCommand implements CommandExecutor {
             }
         }
 
-        if (strings.length == 2) {
+        if (strings.length == 1) {
+            if (strings[0].equalsIgnoreCase("reload")) {
+                pl.reload();
+                commandSender.sendMessage("Config successfully reloaded!");
+            }
+        } else if (strings.length == 2) {
             if (strings[0].equalsIgnoreCase("reset")) {
                 User u = pl.userManager.getUserByName(strings[1]);
                 if (u == null) {
